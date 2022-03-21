@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-title>Brokers list</mat-card-title>
+  <mat-card-actions>
+    <button mat-raised-button (click)="openAddDialog()">
+      <mat-icon>add</mat-icon><span>ADD</span>
+    </button>
+    <button mat-raised-button [disabled]="usersList.selectedOptions.selected.length != 1" (click)="openEditDialog(usersList.selectedOptions.selected[0]?.value)">
+      <mat-icon>edit</mat-icon><span>EDIT</span>
+    </button>
+    <button mat-raised-button [disabled]="usersList.selectedOptions.selected.length == 0" (click)="deleteUsers(usersList.selectedOptions.selected.values())">
+      <mat-icon>delete</mat-icon><span>DELETE</span>
+    </button>
+  </mat-card-actions>
+  <mat-card-content>
+    <mat-selection-list #usersList >
+      <mat-list-option *ngFor="let user of users" [value]="user" checkboxPosition="before">
+        <div mat-line class="full-name">
+          <strong>{{user.firstName}} {{user.lastName}}</strong>
+        </div>
+        <div mat-line class="username">
+          {{user.username}}
+        </div>
+        <div mat-line class="budget">
+          ${{user.budget}}
+        </div>
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-card-content>
+</mat-card>
+

@@ -1,0 +1,45 @@
+<h1 mat-dialog-title>Edit the stock</h1>
+<div mat-dialog-content>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Company's name</mat-label>
+      <input matInput [(ngModel)]="data.stock.name">
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Price per stock</mat-label>
+      <input matInput [(ngModel)]="data.stock.price">
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Amount of stocks</mat-label>
+      <input matInput [(ngModel)]="data.stock.amount">
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Maximal price step</mat-label>
+      <input matInput [(ngModel)]="data.stock.maxStep">
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Distribution law for a step</mat-label>
+      <mat-select [(ngModel)]="data.stock.distributionLaw">
+        <mat-option value="Uniform">Uniform</mat-option>
+        <mat-option value="Normal">Normal</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">OK</button>
+  <button mat-button [mat-dialog-close]="false">Cancel</button>
+</div>
+

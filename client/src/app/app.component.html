@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h1>STOCK EXCHANGE</h1>
+    <div>
+      <a mat-button [routerLink]="'/'"> Home </a>
+      <a mat-button [routerLink]="'/brokers'"> Brokers list </a>
+      <a mat-button [routerLink]="'/stocks'"> Stocks list </a>
+      <a mat-button [routerLink]="'/settings'"> Settings </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<main>
+  <router-outlet></router-outlet>
+</main>

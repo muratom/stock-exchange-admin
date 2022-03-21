@@ -1,0 +1,38 @@
+<mat-card>
+  <mat-card-title>List of stocks</mat-card-title>
+  <mat-card-actions>
+    <button mat-raised-button (click)="openAddDialog()">
+      <mat-icon>add</mat-icon><span>ADD</span>
+    </button>
+    <button mat-raised-button [disabled]="stocksList.selectedOptions.selected.length != 1" (click)="openEditDialog(stocksList.selectedOptions.selected[0]?.value)">
+      <mat-icon>edit</mat-icon><span>EDIT</span>
+    </button>
+    <button mat-raised-button [disabled]="stocksList .selectedOptions.selected.length == 0" (click)="deleteStocks(stocksList.selectedOptions.selected.values())">
+      <mat-icon>delete</mat-icon><span>DELETE</span>
+    </button>
+  </mat-card-actions>
+  <mat-card-content>
+    <mat-selection-list #stocksList>
+      <mat-list-option *ngFor="let stock of stocks" [value]="stock" checkboxPosition="before">
+        <div mat-line>
+          <strong class="symbol">{{stock.symbol}}</strong>
+        </div>
+        <div mat-line>
+          <strong>Company:</strong> {{stock.name}}
+        </div>
+        <div mat-line>
+          <strong>Price per a stock: </strong><span class="money">${{stock.price}}</span>
+        </div>
+        <div mat-line>
+          <strong>Amount: </strong><span class="amount">{{stock.amount}}</span>
+        </div>
+        <div mat-line>
+          <strong>Maximal price step: </strong><span class="money">${{stock.maxStep}}</span>
+        </div>
+        <div mat-line>
+          <strong>Distribution law for a step:</strong> {{stock.distributionLaw}}
+        </div>
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,50 @@
+<h1 mat-dialog-title>Add a new stock</h1>
+<div mat-dialog-content>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Company's name</mat-label>
+      <input matInput [(ngModel)]="stock.name" required>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Company's symbol</mat-label>
+      <input matInput [(ngModel)]="stock.symbol" required>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Price per stock</mat-label>
+      <input matInput type="number" [(ngModel)]="stock.price" required>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Amount of stocks</mat-label>
+      <input matInput type="number" [(ngModel)]="stock.amount" required>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Maximal price step</mat-label>
+      <input matInput type="number" [(ngModel)]="stock.maxStep" required>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Distribution law for a step<</mat-label>
+      <mat-select [(ngModel)]="stock.distributionLaw" required>
+        <mat-option value="Uniform">Uniform</mat-option>
+        <mat-option value="Normal">Normal</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">ОК</button>
+  <button mat-button [mat-dialog-close]="false">Отмена</button>
+</div>
+
